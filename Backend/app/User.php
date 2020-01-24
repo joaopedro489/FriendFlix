@@ -39,7 +39,7 @@ class User extends Authenticatable
     ];
 
     public function series(){
-      return $this->hasMany('App\series')
+      return $this->hasMany('App\series');
     }
 
 }
