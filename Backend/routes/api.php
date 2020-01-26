@@ -17,8 +17,25 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('listaUsers', 'UserController@listUser');
-Route::get('mostraUser/{id}', 'UserController@showUser');
-Route::post('criaUser', 'UserController@createUser');
-Route::put('atualizaUser/{id}', 'UserController@uptadeUser');
-Route::delete('deletaUser/{id}', 'UserController@deleteUser');
+Route::get('listUser', 'UserController@listUser');
+Route::get('showUser/{id}', 'UserController@showUser');
+Route::post('createUser', 'UserController@createUser');
+Route::put('addMovieOnTheList/{user_id}/{movie_id}', 'UserController@addMovieOnTheList');
+Route::put('updateUser/{id}', 'UserController@updateUser');
+Route::delete('deleteUser/{id}', 'UserController@deleteUser');
+Route::delete('deleteMovieOnTheList/{user_id}/{movie_id}', 'UserController@deleteMovieOnTheList');
+
+
+
+Route::get('listMovie', 'MovieController@listMovie');
+Route::get('showMovie/{id}', 'MovieController@showMovie');
+Route::post('createMovie', 'MovieController@createMovie');
+Route::put('updateMovie/{id}', 'MovieController@updateMovie');
+Route::delete('deleteMovie/{id}', 'MovieController@deleteMovie');
+
+
+Route::get('listPost', 'PostController@listPost');
+Route::get('showPost/{id}', 'PostController@showPost');
+Route::post('createPost', 'PostController@createPost');
+Route::put('updatePost/{id}', 'PostController@updatePost');
+Route::delete('deletePost/{id}', 'PostController@deletePost');

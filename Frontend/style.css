@@ -1,48 +1,170 @@
-img{
-  width: 50%;
-  height: 30%;
+html {
+  background-color: #1D1F1C;
 }
-ul{
+
+p, h4, h6 {
+  color: white;
+}
+
+.logo {
+  background-color: rgba(255, 120, 120, 1);
+  margin-left: -10px;
+  margin-right: -10px;
+  display: flex;
+  justify-content: center;
+}
+
+ul {
   margin-top: 0;
+  margin-left: -10px;
+  margin-right: -10px;
   list-style: none;
   display: flex;
   justify-content: flex-start;
-  background-color: red;
+  background-color: rgba(255, 120, 120, 0.75);
 }
-li{
+
+li {
   margin-right: 30px;
   font-size: 1.2em;
 }
-h1{
-  font-size: 3em;
-  margin-top: 20px;
-  background-color: red;
+
+h1 {
+  font-size: 1.5em;
+  margin: 0;
+  color: white;
+}
+
+.all {
+  display: flex;
+  justify-content: space-around;
+}
+
+.left {
+  display: flex;
+  justify-content: space-around;
+}
+
+.imagem1 {
+  width: 50vw;
+  border-radius: 52px;
+}
+
+.text {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 52px;
+  background: linear-gradient(to right, #1D1F1C 10%, #f1fc8b 300%);
+}
+
+.text p {
+  font-size: 1.5em;
+}
+
+.textRight {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  border-radius: 52px;
+  background: linear-gradient(to Left, #1D1F1C 10%, #f1fc8b 300%);
+}
+
+.textRight p {
+  font-size: 1.5em;
+}
+
+.title {
+  font-size: 2.2em;
   margin-bottom: 0;
 }
-h4{
-  margin-bottom: auto;
-  font-size: 2em;
-}
-.header p{
-  font-size: 1.2em;
-  margin: auto;
-}
-.text{
-  margin: auto;
-  height: 56.25vh;
+
+.subtitle {
+  font-size: 1.5em;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.comumidade {
+  margin: 0;
+}
+
+.comumidade p {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.botao {
+  margin: auto;
+}
+
+.botao button {
+  width: 200px;
+  height: 30px
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+footer h6 {
+  display: flex;
+  justify-content: center;
+}
+
+.end {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+  background: linear-gradient(to Left, #1D1F1C 10%, #f1fc8b 300%);
+  border-radius: 1000px;
+}
+
+.explicacao {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.item {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 30%;
+  border: 5px solid black;
+  border-radius: 20px;
+  background-color: rgba(50, 56, 64, 0.5);
+  box-shadow: 15px 5px rgba(245, 245, 245, 0.35);
+}
+
+.tela {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.minitext {
+  font-size: 1.4em;
+  margin-left: 50px;
+}
+
+.contato {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
 }
-.text h4{
-  margin: 0;
-}
-.text p{
-  margin: 0;
-}
-.header img{
 
-    float: right;
+.contato p {
+  font-size: 1.2em;
 }
-.right{
-  clear: both;
+
+footer p {
+  display: flex;
+  justify-content: center;
 }
