@@ -1,19 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-post',
+  templateUrl: './post.page.html',
+  styleUrls: ['./post.page.scss'],
 })
-export class HomePage {
-	title='Mengao!';
-  	constructor() {}
-  	dadosPost:object = {
+export class PostPage implements OnInit {
+	
+	constructor() { }
+ 	dadosPost:object = {
   	name: 'João',
   	title:'Otimo episodio',
   	text: 'sdlkfjasiocnaosicdbauiscdbiasudhasuio',
   	likes: 0,
-  	dislikes: 1,
+  	dislikes: 0,
   	reacted: false, 
   	episode:{
   		serie: 'Sei la',
@@ -23,16 +23,12 @@ export class HomePage {
   		userName: 'Lol',
   		text: 'sdfhsdocvnjioasdcnklfhio',
   	}
-  };
+  }
   	like(dadosPost){
-  		if (this.dadosPost.reacted) {
-  			dadosPost.likes--;
-
-  		}
-  		else{
-  			dadosPost.likes++;
-  		}
   		dadosPost.reacted = !(dadosPost.reacted);
+  		dadosPost.likes++;
   	}
-
+  	ngOnInit() {
+  }
 }
+

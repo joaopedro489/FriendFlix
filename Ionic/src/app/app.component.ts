@@ -22,9 +22,9 @@ export class AppComponent {
       icon: 'list'
     },
     {
-      title: 'Movies',
-      url: '/movies',
-      icon: 'film'
+      title: 'Post',
+      url: '/post',
+      icon: 'text'
     }
   ];
 
