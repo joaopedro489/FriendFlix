@@ -1,0 +1,7 @@
+{
+  "name": "FriendFlixionic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
