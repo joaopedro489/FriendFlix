@@ -3,16 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\UserRequest;
 use App\User;
 use App\Movie;
 
 class UserController extends Controller{
-  public function createUser(Request $request){
+  public function createUser(UserRequest $request){
+      $validator = Validator::make($request->all(),[
+        
+      ]);
+      if($validator->fails()){
+        return response()->json($validator->errors());
+      }
       $user = new User();
       $user->name = $request->name;
       $user->email = $request->email;
       $user->number = $request->number;
       $user->birth = $request->birth;
+      $user->CPF = $request->CPF;
       $user->password = $request->password;
       $user->save();
       return response()->json([$user]);
@@ -25,7 +34,13 @@ class UserController extends Controller{
     $user = User::findOrFail($id);
     return response()->json([$user]);
   }
-  public function updateUser(Request $request, $id){
+  public function updateUser(UserRequest $request, $id){
+    $validator = Validator::make($request->all(),[
+        
+      ]);
+      if($validator->fails()){
+        return response()->json($validator->errors());
+      }
     $user = User::find($id);
     if($user){
       if($request->name){
@@ -41,6 +56,9 @@ class UserController extends Controller{
         $user->birth = $request->birth;
       }if($request->password){
         $user->password = $request->password;
+      }
+      if($request->CPF){
+        $user->CPF = $request->CPF;
       }
       $user->save();
       return response()->json([$user]);

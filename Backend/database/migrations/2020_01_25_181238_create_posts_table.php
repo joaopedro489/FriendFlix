@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
           $table->integer('likes')->unsigned()->nullable();
           $table->longText('text');
           $table->integer('dislikes')->unsigned()->nullable();
-          $table->unsignedBigInteger('user_id');
+          $table->unsignedBigInteger('user_id')->nullable();
           $table->timestamps();
       });
       Schema::table('posts', function (Blueprint $table) {
