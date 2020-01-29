@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Movie;
 use App\Post;
 
 class PostController extends Controller
@@ -43,6 +45,9 @@ class PostController extends Controller
       if($request->user_id){
         $post->user_id = $request->user_id;
       }
+      if($request->movie_id){
+        $post->movie_id = $request->movie_id;
+      }
       $post->save();
       return response()->json([$post]);
     }
@@ -53,5 +58,17 @@ class PostController extends Controller
   public function deletePost($id){
     Post::destroy($id);
     return response()->json(['post deleteado']);
+  }
+  public function deleteUser($id){
+    $post = Post::find($id);
+    $post->user_id = null;
+    $post->save();
+    return response()->json(['user deleteado']);
+  }
+  public function deleteMovie($id){
+    $post = Post::find($id);
+    $post->movie_id = null;
+    $post->save();
+    return response()->json(['filme deleteado']);
   }
 }

@@ -20,11 +20,12 @@ class CreatePostsTable extends Migration
           $table->longText('text');
           $table->integer('dislikes')->unsigned()->nullable();
           $table->unsignedBigInteger('user_id')->nullable();
+          $table->unsignedBigInteger('movie_id')->nullable();
           $table->timestamps();
       });
       Schema::table('posts', function (Blueprint $table) {
         $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
-
+        $table->foreign('movie_id')->references('id')->on('movies')->onDelete('set null');
   });
     }
 

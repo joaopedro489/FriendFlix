@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\UserRequest;
 use App\User;
 use App\Movie;
+use App\Post;
 
 class UserController extends Controller{
   public function createUser(UserRequest $request){
@@ -81,4 +82,5 @@ class UserController extends Controller{
       $user->movies()->detach($movie_id);
       return response()->json(['Filme removido na lista']);
   }
+
 }

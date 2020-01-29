@@ -45,4 +45,5 @@ class User extends Authenticatable
     public function movies(){
     return $this->belongsToMany('App\Movie')->withTimestamps();
   }
+    
 }

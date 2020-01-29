@@ -22,7 +22,6 @@ class CreateMoviesTable extends Migration
           $table->string('directed_by');
           $table->timestamps();
       });
-
     }
 
     /**

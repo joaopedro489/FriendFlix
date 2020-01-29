@@ -26,7 +26,6 @@ Route::delete('deleteUser/{id}', 'UserController@deleteUser');
 Route::delete('deleteMovieOnTheList/{user_id}/{movie_id}', 'UserController@deleteMovieOnTheList');
 
 
-
 Route::get('listMovie', 'MovieController@listMovie');
 Route::get('showMovie/{id}', 'MovieController@showMovie');
 Route::post('createMovie', 'MovieController@createMovie');
@@ -37,5 +36,8 @@ Route::delete('deleteMovie/{id}', 'MovieController@deleteMovie');
 Route::get('listPost', 'PostController@listPost');
 Route::get('showPost/{id}', 'PostController@showPost');
 Route::post('createPost', 'PostController@createPost');
+Route::put('addMovie/{id}', 'PostController@addMovie');
 Route::put('updatePost/{id}', 'PostController@updatePost');
 Route::delete('deletePost/{id}', 'PostController@deletePost');
+Route::delete('deleteUser/{id}', 'PostController@deleteUser');
+Route::delete('deleteMovie/{id}', 'PostController@deleteMovie');

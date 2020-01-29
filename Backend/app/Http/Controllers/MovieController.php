@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Movie;
+use App\Post;
 
 class MovieController extends Controller
 {
@@ -53,6 +55,5 @@ class MovieController extends Controller
   public function deleteMovie($id){
     Movie::destroy($id);
     return response()->json(['Filme deleteado']);
-  }
-
+  }  
 }
