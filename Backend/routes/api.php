@@ -41,3 +41,12 @@ Route::put('updatePost/{id}', 'PostController@updatePost');
 Route::delete('deletePost/{id}', 'PostController@deletePost');
 Route::delete('deleteUser/{id}', 'PostController@deleteUser');
 Route::delete('deleteMovie/{id}', 'PostController@deleteMovie');
+
+
+Route::post('register', 'Api\PassportController@register');
+Route::post('login', 'Api\PassportController@login');
+
+Route::group(['middleware' => 'auth:api'], function(){
+    Route::post('logout', 'Api\PassportController@logout');
+    Route::post('getDetails', 'Api\PassportController@getDetails');
+});

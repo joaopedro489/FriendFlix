@@ -174,7 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        LaravelLegends\PtBrValidator\ValidatorProvider::class
+        LaravelLegends\PtBrValidator\ValidatorProvider::class,
+        Laravel\Passport\PassportServiceProvider::class
     ],
 
     /*
