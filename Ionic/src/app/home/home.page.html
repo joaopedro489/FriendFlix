@@ -10,21 +10,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-card class="welcome-card" *ngFor="let post of dadosPost">
-    <img src="/assets/shapes.svg" alt=""/>
-      <ion-card-header>
-        <ion-icon *ngIf="post.spoiler" size="large" name="alert" color="primary"></ion-icon>
-        <ion-card-title>{{post.title}}</ion-card-title>
-        <ion-card-subtitle>{{post.name}}</ion-card-subtitle>
-        <p>{{post.text}}</p>
-        <ion-row>
-          <ion-icon size = "large"name="thumbs-up" (click) = "like(post)" color="{{post.liked ? 'primary' : 'white'}}"></ion-icon>
-          <p>{{post.likes}}</p>
-          <ion-icon size = "large" name="thumbs-down" (click) = "dislike(post)" color="{{post.disliked ? 'primary' : 'white'}}"></ion-icon>
-          <p>{{post.dislikes}}</p>
-        </ion-row>
-      </ion-card-header>
-  </ion-card>
+
 
   <ion-list lines="none">
     <ion-list-header>
