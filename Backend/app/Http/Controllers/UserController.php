@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\UserRequest;
 use App\User;
 use App\Movie;
-use App\Post;
+use App\Http\Resources\Users as UserResource;
 
 class UserController extends Controller{
   public function createUser(UserRequest $request){
@@ -28,12 +28,13 @@ class UserController extends Controller{
       return response()->json([$user]);
   }
   public function listUser(){
-    $user = User::all();
-    return response()->json($user);
+    $paginator = User::paginate(10);
+    $user = UserResource::collection($paginator);
+    $last = $paginator->lastPage();
+    return response()->json([$user, $last]);
   }
   public function showUser($id){
-    $user = User::findOrFail($id);
-    return response()->json([$user]);
+    return response()->json(new UserResource(User::find($id)));
   }
   public function updateUser(UserRequest $request, $id){
     $validator = Validator::make($request->all(),[
@@ -82,5 +83,6 @@ class UserController extends Controller{
       $user->movies()->detach($movie_id);
       return response()->json(['Filme removido na lista']);
   }
+
 
 }
