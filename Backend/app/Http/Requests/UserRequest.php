@@ -39,10 +39,10 @@ class UserRequest extends FormRequest
         if($this->isMethod('put')){
         return[  
             'name' => 'string',
-            'email' => 'required|email|unique:users,email',
-            'number' => 'required|celular|unique:users,number',
+            'email' => 'email|unique:users,email',
+            'number' => 'celular|unique:users,number',
             'birth' =>  'data',
-            'password' => 'required',
+            'password' => '',
             'CPF' => 'cpf'
         ];
         }

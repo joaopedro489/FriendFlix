@@ -50,5 +50,5 @@ Route::post('login', 'Api\PassportController@login');
 
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('logout', 'Api\PassportController@logout');
-    Route::post('getDetails', 'Api\PassportController@getDetails');
+    Route::post('getDetails', 'Api\PassportController@getDetails')->middleware('admin');
 });

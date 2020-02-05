@@ -25,6 +25,7 @@ class UserController extends Controller{
       $user->birth = $request->birth;
       $user->CPF = $request->CPF;
       $user->password = $request->password;
+      $user->admin = $request->admin;
       $user->save();
       if (!Storage::exists('localPhotos/')){
         Storage::makeDirectory('localPhotos/',0775,true);
@@ -57,6 +58,9 @@ class UserController extends Controller{
     if($user){
       if($request->name){
         $user->name = $request->name;
+      }
+      if($request->admin){
+        $user->admin = $request->admin;
       }
       if($request->email) {
         $user->email = $request->email;
@@ -104,6 +108,8 @@ class UserController extends Controller{
     Storage::delete($user->photo);
     return response()->json(['Foto deletada']);
   }
+
+
 
 
 }
