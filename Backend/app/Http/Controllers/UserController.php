@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Movie;
 use App\Http\Resources\Users as UserResource;
@@ -25,6 +26,15 @@ class UserController extends Controller{
       $user->CPF = $request->CPF;
       $user->password = $request->password;
       $user->save();
+      if (!Storage::exists('localPhotos/')){
+        Storage::makeDirectory('localPhotos/',0775,true);
+      }
+      $file = $request->file('photo');
+      $filename = $user->id.".".$file->getClientOriginalExtension();
+      $path = $file->storeAs('localPhotos', $filename);
+      $user->photo = $path;
+      $user->save();
+
       return response()->json([$user]);
   }
   public function listUser(){
@@ -82,6 +92,17 @@ class UserController extends Controller{
       $user = User::find($user_id);
       $user->movies()->detach($movie_id);
       return response()->json(['Filme removido na lista']);
+  }
+  
+  public function showPhoto($id){
+    $user = User::find($id);
+    $path = $user->photo;
+    return Storage::download($path);
+  }
+  public function deletePhoto($id){
+    $user = User::find($id);
+    Storage::delete($user->photo);
+    return response()->json(['Foto deletada']);
   }
 
 

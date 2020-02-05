@@ -19,11 +19,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('listUser', 'UserController@listUser');
 Route::get('showUser/{id}', 'UserController@showUser');
+Route::get('showPhoto/{id}', 'UserController@showPhoto');
 Route::post('createUser', 'UserController@createUser');
 Route::put('addMovieOnTheList/{user_id}/{movie_id}', 'UserController@addMovieOnTheList');
 Route::put('updateUser/{id}', 'UserController@updateUser');
 Route::delete('deleteUser/{id}', 'UserController@deleteUser');
 Route::delete('deleteMovieOnTheList/{user_id}/{movie_id}', 'UserController@deleteMovieOnTheList');
+Route::delete('deletePhoto/{id}', 'UserController@deletePhoto');
 
 
 Route::get('listMovie', 'MovieController@listMovie');

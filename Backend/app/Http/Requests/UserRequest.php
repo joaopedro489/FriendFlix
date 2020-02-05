@@ -32,7 +32,8 @@ class UserRequest extends FormRequest
             'number' => 'required|celular|unique:users,number',
             'birth' =>  'required|data',
             'password' => 'required',
-            'CPF' => 'required|cpf'
+            'CPF' => 'required|cpf',
+            'photo' => 'file|image|mimes:jpeg,png,gif,webp|max:4048'
         ];
     }
         if($this->isMethod('put')){
